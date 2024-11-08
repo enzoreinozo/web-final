@@ -8,3 +8,5 @@ const Footer = (props) => {
 }
 
 export default Footer;
+
+import '../../syles/components/layout/Header.css'

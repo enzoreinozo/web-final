@@ -29,4 +29,5 @@ const HomePage = (props) => {
   }
   
   export default HomePage;
-  
+
+  import '../syles/components/pages/HomePage.css'

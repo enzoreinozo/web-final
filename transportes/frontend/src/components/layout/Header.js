@@ -10,3 +10,5 @@ const Header = (props) => {
     )
 }
 export default Header;
+
+import '../../syles/components/layout/Header.css'
