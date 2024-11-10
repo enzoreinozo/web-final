@@ -31,4 +31,6 @@ function App() {
 
 export default App;
 
+var nosotrosRouter = import (./routes/nosotros);
 
+app.use('/nosotros', nosotrosRouter)

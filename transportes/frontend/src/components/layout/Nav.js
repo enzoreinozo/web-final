@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Nav = (props) => {
+const nav = (props) => {
   return (
     <nav>
       <div>
@@ -15,7 +15,7 @@ const Nav = (props) => {
   );
 }
 
-export default Nav;
+export default nav;
 
 import '../../syles/components/layout/Header.css'
 
@@ -41,4 +41,4 @@ const Nav = (props) => {
   )
 }
 
-export default Nav;
+export default nav;
