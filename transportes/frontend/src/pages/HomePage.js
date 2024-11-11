@@ -1,10 +1,11 @@
 import React from "react";
+import '../styles/components/pages/HomePage.css';
 
 const HomePage = (props) => {
   return (
     <main className="holder">
       <div className="homeimg">
-        <img src="img/ala.jpg" alt="avion" />
+        <img src="/img/ala.jpg" alt="Avión sobre un fondo claro" />
       </div>
       <div className="columnas">
         <div className="bienvenidos left">
@@ -31,5 +32,3 @@ const HomePage = (props) => {
 }
 
 export default HomePage;
-
-import '../styles/components/pages/HomePage.css'

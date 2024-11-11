@@ -4,27 +4,30 @@ const ContactoPage = (props) => {
   return (
       <main className="holder contacto">
           <div>
-              <h2>Contacto Rápido</h2>
-              <form className="formulario" action="" method="" >
-                  <p>
-                      <label for="nombre">Nombre</label>
-                      <input type="text" />
-                  </p>
-                  <p>
-                      <label for="email">Email</label>
-                      <input type="text" />
-                  </p>
-                  <p>
-                      <label for="telefono">Telefono</label>
-                      <input type="text" />
-                  </p>
-                  <p>
-                      <label for="mensaje">Mensaje</label>
-                      <textarea></textarea>
-                  </p>
-                  <p className="acciones"><input type="submit" value="Enviar" /></p>
-              </form>
-          </div>
+            <h2>Contacto Rápido</h2>
+            <form className="formulario" action="/api/contacto" method="POST">
+                <p>
+                    <label htmlFor="nombre">Nombre</label>
+                <input type="text" id="nombre" />
+                </p>
+                <p>
+                    <label htmlFor="email">Email</label>
+                <input type="email" id="email" />
+                </p>
+                <p>
+                    <label htmlFor="telefono">Teléfono</label>
+                <input type="text" id="telefono" />
+                </p>
+                <p>
+                    <label htmlFor="mensaje">Mensaje</label>
+                <textarea id="mensaje"></textarea>
+                </p>
+                <p className="acciones">
+                    <input type="submit" value="Enviar" />
+                </p>
+            </form>
+            </div>
+
 
           <div className="datos">
               <h2>Otras vias de comunicación</h2>
