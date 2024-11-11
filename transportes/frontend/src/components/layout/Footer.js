@@ -1,12 +1,13 @@
 import React from 'react';
+
 const Footer = (props) => {
-    return (
+    return(
         <footer>
-            <p>Derechos reservados. Transporte X 2024</p>
+            <p>Derechos reservados. Transportes X 2024</p>
         </footer>
     );
 }
 
 export default Footer;
 
-import '../../syles/components/layout/Header.css'
+import '../../styles/components/layout.Footer.css';

@@ -1,14 +1,22 @@
 import React from 'react';
+
 const Header = (props) => {
-    return (
+    return(
+        <div>Header</div>
+    );
+}
+
+export default Header;
+
+const Header = (props) => {
+    return(
         <header>
-        <div className="holder">
-        <img src="img/transporte.jpg" witdth="100" alt="Transportes X" />
-        <h1>Transportes X</h1>
-        </div>
+            <div className="holder">
+                <img src= "transportes/frontend/public/logo192.png" width="100" alt="Transportes X" />
+                <h1>Transportes X</h1>
+            </div>
         </header>
     )
 }
-export default Header;
 
-import '../../syles/components/layout/Header.css'
+import '../../styles/components/layout.Header.css';

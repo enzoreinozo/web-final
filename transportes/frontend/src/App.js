@@ -1,10 +1,29 @@
+import React from "react";
+
+import Header from './components/layout/Header';
+import Nav from './components/layout/Nav';
+import Footer from './components/layout/Footer';
+
+function App(){
+  return(
+    <div className="App">
+      <Header/>
+      <Nav/>
+      <Footer/>
+      </div>
+  );
+}
+
+
+
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from './components/layout/Header';
 import Nav from './components/layout/Nav';
 import Footer from './components/layout/Footer';
 
-import ContactoPage from './pages/contactoPage';
+import ContactoPage from './pages/ContactoPage';
 import HomePage from './pages/HomePage';
 import NosotrosPage from './pages/NosotrosPage';
 import NovedadesPage from './pages/NovedadesPage';
@@ -30,7 +49,3 @@ function App() {
 }
 
 export default App;
-
-var nosotrosRouter = import (./routes/nosotros);
-
-App.use('/nosotros', nosotrosRouter)
