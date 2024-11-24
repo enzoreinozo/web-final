@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "express-handlebars": "^8.0.1",
     "mysql": "^2.18.1",
+    "mysql2": "^3.11.4",
+    "nodemailer": "^6.9.16",
     "package.json": "^0.0.0",
     "util": "^0.12.5"
   }
