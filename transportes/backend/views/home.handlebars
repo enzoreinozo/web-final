@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Proyecto</title>
-    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <h1>Bienvenido a Mi Proyecto</h1>
-    <form action="/send-mail" method="POST">
-        <input type="text" name="name" placeholder="Nombre" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <textarea name="message" placeholder="Escribe tu mensaje" required></textarea>
-        <button type="submit">Enviar mensaje</button>
-    </form>
+    <header>
+        <h1>Bienvenido a mi Proyecto</h1>
+    </header>
+    <main>
+        <h2>Sección Principal</h2>
+        <p>Aquí puedes poner un poco de contenido dinámico.</p>
+        <a href="/contact">Ir al formulario de contacto</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Proyecto</p>
+    </footer>
 </body>
 </html>
