@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 
 const app = express();
-const port = 5000;
+const port = 5001;
 
 // Configuración de Handlebars
 app.engine('handlebars', exphbs());
@@ -20,7 +20,7 @@ app.use(express.static('public'));
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',  // Asegúrate de ingresar tu contraseña aquí
+    password: 'root',  // Asegúrate de ingresar tu contraseña aquí
     database: 'web_final'
 });
 
