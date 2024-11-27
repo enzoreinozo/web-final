@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
-/transportes/ backend/ .env
+config/transportes/backend/.env
