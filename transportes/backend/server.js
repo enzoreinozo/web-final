@@ -43,6 +43,3 @@ app.post('/api/send-email', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-
-const cors = require('cors');
-app.use(cors());
