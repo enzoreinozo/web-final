@@ -24,3 +24,7 @@ yarn-error.log*
 node_modules
 
 transportes/backend/.env
+
+.vscode
+
+.DS_Store
