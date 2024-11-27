@@ -28,3 +28,5 @@ transportes/backend/.env
 .vscode/
 
 .DS_Store/
+
+transportes/backend/node_modules
