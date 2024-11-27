@@ -1,4 +1,3 @@
-// src/components/Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -12,4 +11,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Nav.js;

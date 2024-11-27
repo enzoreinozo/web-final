@@ -1,4 +1,3 @@
-// src/pages/Contact.js
 import React, { useState } from "react";
 
 const Contact = () => {
@@ -8,17 +7,11 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email || !message) {
-      alert("Todos los campos son obligatorios.");
-      return;
-    }
-
     fetch("http://localhost:3001/api/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, message }),
     })
-      .then((response) => response.json())
       .then(() => alert("Correo enviado correctamente"))
       .catch(() => alert("Error al enviar el correo"));
   };
@@ -41,11 +34,12 @@ const Contact = () => {
         placeholder="Mensaje"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-      />
+      ></textarea>
       <button type="submit">Enviar</button>
     </form>
   );
 };
+
 
 const handleSubmit = (e) => {
     e.preventDefault();
