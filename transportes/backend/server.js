@@ -60,3 +60,44 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS,
     },
 });
+
+// Crear un registro
+app.post('/api/records', (req, res) => {
+    const { nombre, descripcion } = req.body;
+    db.query('INSERT INTO registros (nombre, descripcion) VALUES (?, ?)', [nombre, descripcion], (err, results) => {
+      if (err) return res.status(500).json(err);
+      res.status(201).json({ id: results.insertId, nombre, descripcion });
+    });
+  });
+  
+  // Leer registros
+  app.get('/api/records', (req, res) => {
+    db.query('SELECT * FROM registros', (err, results) => {
+      if (err) return res.status(500).json(err);
+      res.json(results);
+    });
+  });
+  
+  // Actualizar un registro
+  app.put('/api/records/:id', (req, res) => {
+    const { id } = req.params;
+    const { nombre, descripcion } = req.body;
+    db.query(
+      'UPDATE registros SET nombre = ?, descripcion = ? WHERE id = ?',
+      [nombre, descripcion, id],
+      (err, results) => {
+        if (err) return res.status(500).json(err);
+        res.json({ message: 'Registro actualizado' });
+      }
+    );
+  });
+  
+  // Eliminar un registro
+  app.delete('/api/records/:id', (req, res) => {
+    const { id } = req.params;
+    db.query('DELETE FROM registros WHERE id = ?', [id], (err, results) => {
+      if (err) return res.status(500).json(err);
+      res.json({ message: 'Registro eliminado' });
+    });
+  });
+  
