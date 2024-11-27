@@ -1,48 +1,69 @@
-import React from "react";
+// src/pages/Contact.js
+import React, { useState } from "react";
 
-const ContactoPage = (props) => {
+const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !email || !message) {
+      alert("Todos los campos son obligatorios.");
+      return;
+    }
+
+    fetch("http://localhost:3001/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    })
+      .then((response) => response.json())
+      .then(() => alert("Correo enviado correctamente"))
+      .catch(() => alert("Error al enviar el correo"));
+  };
+
   return (
-      <main className="holder contacto">
-          <div>
-            <h2>Contacto Rápido</h2>
-            <form className="formulario" action="/api/contacto" method="POST">
-                <p>
-                    <label htmlFor="nombre">Nombre</label>
-                <input type="text" id="nombre" />
-                </p>
-                <p>
-                    <label htmlFor="email">Email</label>
-                <input type="email" id="email" />
-                </p>
-                <p>
-                    <label htmlFor="telefono">Teléfono</label>
-                <input type="text" id="telefono" />
-                </p>
-                <p>
-                    <label htmlFor="mensaje">Mensaje</label>
-                <textarea id="mensaje"></textarea>
-                </p>
-                <p className="acciones">
-                    <input type="submit" value="Enviar" />
-                </p>
-            </form>
-            </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Nombre"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="email"
+        placeholder="Correo electrónico"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <textarea
+        placeholder="Mensaje"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button type="submit">Enviar</button>
+    </form>
+  );
+};
 
-
-          <div className="datos">
-              <h2>Otras vias de comunicación</h2>
-              <p>También puede contactarse con nosotros usando los siguientes medios</p>
-              <ul>
-                  <li>Teléfono: 43242388</li>
-                  <li>Email: contacto@transportesx.com.ar</li>
-                  <li>Facebook:</li>
-                  <li>Twitter:</li>
-                  <li>Skype:</li>
-              </ul>
-          </div>
-      </main>
-  )
-}
+const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !email || !message) {
+      alert("Todos los campos son obligatorios.");
+      return;
+    }
+  
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message })
+    })
+      .then((response) => response.json())
+      .then((data) => alert('Correo enviado correctamente'))
+      .catch((error) => alert('Error al enviar el correo'));
+  };
+  
 
 export default ContactoPage;
 
