@@ -30,3 +30,5 @@ transportes/backend/.env
 .DS_Store
 
 transportes/backend/node_modules
+
+package-lock.json
