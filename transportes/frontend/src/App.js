@@ -1,21 +1,33 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Crud from "./pages/Crud";
+import { BrowserRouter, Routes, Route} from "react-router-dom"
+
+import Header from "./components/layout/Header";
+import Nav from "./components/layout/Nav";
+import Footer from "./components/layout/Footer";
+
+import ContactoPage from './pages/ContactoPage';
+import HomePage from './pages/HomePage';
+import NosotrosPage from './pages/NosotrosPage';
+import NovedadesPage from './pages/NovedadesPage';
+
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <div className="App">
+      <Header />
+
+      <BrowswerRouter>
+      <Nav/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/crud" element={<Crud />} />
+        <Route path= "/" element={<HomePage />} />
+        <Route path= "nosotros" element={<NosotrosPage />} />
+        <Route path= "novedades"element={<NovedadesPage />} />
+        <Route path= "contacto" element={<ContactoPage />} />
       </Routes>
-    </Router>
-  );
+      </BrowswerRouter>
+
+      <Footer />
+    </div>
+  )
 }
 
 export default App;

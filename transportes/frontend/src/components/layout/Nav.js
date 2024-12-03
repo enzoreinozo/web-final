@@ -1,14 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav>
-      <Link to="/">Inicio</Link>
-      <Link to="/contact">Contacto</Link>
-      <Link to="/crud">CRUD</Link>
+    <nav >
+      <div>
+        <ul>
+          <li> <Link to="/">Home </Link> </li>
+          <li> <Link to="/nosotros">Nosotros </Link> </li>
+          <li> <Link to="/novedades">Novedades </Link> </li>
+          <li> <Link to="/contacto">Contacto </Link> </li>
+        </ul>
+      </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Nav.js;
+export default Nav;
