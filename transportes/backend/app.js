@@ -1,38 +1,49 @@
-const express = require("express");
-const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
-const emailRoutes = require("./routes/email");
-const recordsRoutes = require("./routes/records");
-require('dotenv').config();
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+require ('dotenv').config();
+var pool = require('./models/bd');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+app.use(logger('dev'));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Importar rutas
-const emailRoutes = require('./routes/email');
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-// Usar rutas
-app.use('/api', emailRoutes);
-
-// Resto de la configuración de tu servidor...
-
-
-
-const app = express();
-const PORT = 3001;
-
-// Configuración de Handlebars
-app.engine("handlebars", exphbs.engine());
-app.set("view engine", "handlebars");
-app.set("views", "views");
-
-// Middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Rutas
-app.use("/api/send-email", emailroutes);
-app.use("/api/records", recordsroutes);
-
-// Inicio del servidor
-app.listen(PORT, () => {
-  console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+/*ejemplo select*/
+pool.query('select * from empleados').then(function(resultados){
+  console.log(resultados)
 });
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;

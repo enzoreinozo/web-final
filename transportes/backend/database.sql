@@ -1,9 +1,0 @@
-CREATE DATABASE IF NOT EXISTS web_final;
-
-USE web_final;
-
-CREATE TABLE IF NOT EXISTS records (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  description TEXT
-);
